@@ -2,12 +2,12 @@ import datetime, os, time, argparse, multiprocessing, subprocess
 import SimpleCV
 
 DEFAULT_NUM = 1
-DEFAULT_DELAY = 5
+DEFAULT_DELAY = 0
 DEFAULT_BEEP_TIME = 0
 DEFAULT_RESOLUTION = "1600x1200"
 #DEFAULT_PNG_COMPRESSION = 9 # (-1,0-10)
 DEFAULT_PRE_CAPTURE_DELAY = 0 #seconds
-DEFAULT_FRAME_SKIP = 0
+DEFAULT_FRAME_SKIP = 3
 USERHOME_PATH = os.path.expanduser("~") #should be portable
 DEFAULT_OUTPUT_PATH = os.sep.join((USERHOME_PATH,"photos"))
 RAMDISK_PATH = "/tmp/ramdisk"
@@ -66,8 +66,8 @@ class Webcam(object):
         #base_cmd.append("-D %d" % self.pre_capture_delay)
         base_cmd.append("-S %d" % self.frame_skip)
         #update prefix to include the output path
-        #filename_prefix = os.sep.join((self.output_path,filename_prefix))
-        filename_prefix = os.sep.join((RAMDISK_PATH,filename_prefix))
+        filename_prefix = os.sep.join((self.output_path,filename_prefix))
+        #filename_prefix = os.sep.join((RAMDISK_PATH,filename_prefix))
         #construct the filepaths
         fn = [filename_prefix]
         if not filename_suffix is None:

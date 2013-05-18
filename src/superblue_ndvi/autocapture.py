@@ -1,6 +1,6 @@
 ################################################################################
 import datetime, os, time, argparse, multiprocessing, subprocess
-from camera import Webcam
+from webcam import Webcam
 
 DEFAULT_NUM = 1
 DEFAULT_DELAY = 5
@@ -117,7 +117,7 @@ def main():
     args = parser.parse_args()
     #apply configuration arguments to constructor
     app = Application(resolution = args.resolution,
-                      png_compression = args.png_compression,
+                      #png_compression = args.png_compression,
                       pre_capture_delay = args.pre_capture_delay, #seconds
                       frame_skip = args.frame_skip,
                       output_path = args.output_path,
