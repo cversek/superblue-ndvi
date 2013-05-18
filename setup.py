@@ -20,6 +20,7 @@ MAIN_PACKAGE_PATH = os.path.abspath(os.sep.join((PACKAGE_SOURCE_DIR,MAIN_PACKAGE
 #scripts and plugins
 ENTRY_POINTS = {
                  'console_scripts': [
+                                      'superblue_user = superblue_ndvi.usercapture:main',
                                       'superblue_auto = superblue_ndvi.autocapture:main',
                                     ],
                 } 
